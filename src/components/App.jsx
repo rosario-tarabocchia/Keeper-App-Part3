@@ -13,6 +13,18 @@ function App() {
     });
   }
 
+  function deleteNote(id) {
+    console.log(notes);
+    console.log(id);
+
+    setNotes((prevItems) => {
+      console.log(prevItems);
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
       <Header />
@@ -23,6 +35,7 @@ function App() {
           id={index}
           title={note.title}
           content={note.content}
+          deletePress={deleteNote}
         />
       ))}
 
